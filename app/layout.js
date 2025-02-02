@@ -1,7 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Aside from "./components/Aside";
-import TaskProvider from "./Taskproviders/TaskProvider";
+import TaskProvider from "./providers/TaskProvider";
+import Header from "./components/Header";
+import { AsideProvider } from "./providers/AsideProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,11 +28,13 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} flex h-screen antialiased bg-gray-900 text-white `}
       >
         <TaskProvider>
-          <Aside />
-          <main className="flex-1 overflow-y-auto overflow-x-hidden">
-            
-            {children}
-          </main>
+          <AsideProvider>
+            <Aside />
+            <main className="flex-1 overflow-y-auto overflow-x-hidden">
+              <Header />
+              {children}
+            </main>
+          </AsideProvider>
         </TaskProvider>
       </body>
     </html>

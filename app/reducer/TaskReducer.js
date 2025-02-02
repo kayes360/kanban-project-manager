@@ -62,6 +62,9 @@ export const initialState = {
 
 export const taskReducer = (state, action) => {
   switch (action.type) {
+ 
+    case 'RESTORE_STATE':
+        return action.payload;
     case "CREATE_TASK":
       return {
         taskData: [...state.taskData, action.payload],

@@ -1,8 +1,16 @@
+'use client'
 import React from "react";
+import { useAside } from "../providers/AsideProvider";
 
 export default function Aside() {
+    const { isAsideVisible } = useAside();
+ 
   return (
-    <aside className="hidden w-64 bg-gray-800 p-6 lg:block">
+    <aside
+    className={`h-full bg-gray-800  transition-all duration-300 ease-in-out ${
+      isAsideVisible ? "w-64 visible p-6" : "w-0 invisible overflow-hidden"
+    }`}
+  >
       <div className="mb-8 flex items-center">
         <div className="flex items-center justify-center rounded-full text-xl font-bold">
           <img
