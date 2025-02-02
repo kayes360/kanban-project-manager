@@ -13,7 +13,7 @@ import { TaskContext } from "../context";
 
 export default function TodoList({ todoTaskList, sortOrder, onSortChange }) {
       const { state } = useContext(TaskContext);
-      console.log(state)
+      
     const [localTodoTaskList,setLocalTodoTaskList] = useState(todoTaskList)
 
       const sensors = useSensors(
